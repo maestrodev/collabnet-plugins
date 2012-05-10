@@ -17,4 +17,4 @@ CollabNet TeamForge Plugin for Apache Maven
 
 * Examples
 
-  * Foo!
+  * {{{./examples/custom-release.html} Custom Release Parameters}}
