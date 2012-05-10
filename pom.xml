@@ -59,12 +59,12 @@
     <repository>
       <id>maestro-deploy</id>
       <name>Public Releases Repository</name>
-      <url>https://repo.maestrodev.com/archiva/repository/public-releases</url>
+      <url>https://repo.maestrodev.com/archiva/repository/CollabNet.TeamForge.Plugins.releases</url>
     </repository>
     <snapshotRepository>
       <id>maestro-deploy</id>
       <name>Public Snapshots Repository</name>
-      <url>https://repo.maestrodev.com/archiva/repository/public-snapshots</url>
+      <url>https://repo.maestrodev.com/archiva/repository/CollabNet.TeamForge.Plugins.snapshots</url>
     </snapshotRepository>
   </distributionManagement>
 
