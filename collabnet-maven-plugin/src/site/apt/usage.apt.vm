@@ -1,0 +1,64 @@
+ ---------------------------------------------------
+ CollabNet TeamForge Plugin for Apache Maven - Usage
+ ---------------------------------------------------
+
+Usage
+
+* Configuring the TeamForge Connection
+
+  There are two ways that you can configure your connection to the TeamForge:
+
+    * A server in <<<settings.xml>>> <(recommended)>
+
+    * Pass the username and password in to the plugin
+
+  The use of <<<settings.xml>>> is recommended as it allows you to encrypt your password. For other configuration
+  options, refer to the goal reference pages.
+
+  By default the plugins look for the server with ID <<<teamforge>>>.
+
+----
+<servers>
+  <server>
+    <id>teamforge</id>
+    <username>myusername</username>
+    <password>{zd4aPjBEgBIHnIESbsCu51eHP5Pq0wIXR0IqBhRAIJc=}</password>
+  </server>
+</servers>
+----
+
+  Refer to the Maven {{{http://maven.apache.org/guides/mini/guide-encryption.html} Guide to Password Encryption}} for
+  more information on obtaining the correct encrypted password.
+
+* Deploying Artifacts to the File Releases section
+
+  The <<<deploy-to-releases>>> goal will take any artifacts attached to your project and deploy them to the TeamForge
+  File Releases section.
+
+----
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.maestrodev</groupId>
+        <artifactId>collabnet-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <configuration>
+          <project>myproject</project>
+          <teamForgeUrl>https://teamforge01.codesion.com/</teamForgeUrl>
+        </configuration>
+        <executions>
+          <execution>
+            <id>deploy</id>
+            <goals>
+              <goal>deploy-to-releases</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+----
+
+  By default, the project's name, description and version will be used to create the package and release if they don't
+  exist. To customise these options, refer to the <<<{{{./deploy-to-releases-mojo.html} collabnet:deploy-to-releases}}>>>
+  goal reference.

@@ -1,0 +1,49 @@
+ -----------------------------------------------------------------------
+ CollabNet TeamForge Plugin for Apache Maven - Custom Release Parameters
+ -----------------------------------------------------------------------
+
+Custom Release Parameters
+
+  When deploying artifacts to the File Releases section, quite often the project's name and description may not be
+  suitable for the desired location. These parameters can be changed in the plugin configuration.
+
+----
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.maestrodev</groupId>
+        <artifactId>collabnet-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <configuration>
+          <project>myproject</project>
+          <teamForgeUrl>https://teamforge01.codesion.com/</teamForgeUrl>
+        </configuration>
+        <executions>
+          <execution>
+            <id>deploy</id>
+            <goals>
+              <goal>deploy-to-releases</goal>
+            </goals>
+            <configuration>
+
+              <!-- Use a different package name -->
+              <pkg>Language Packs</pkg>
+              <!-- Add a custom description to the package -->
+              <packageDescription>
+                These artifacts are for the various language packs released for the main application.
+              </packageDescription>
+
+              <!-- Use a custom release name -->
+              <release>Current Development Build</release>
+              <!-- Add a custom description to the release -->
+              <releaseDescription>
+                The latest builds of the language packs coming out of the CI server.
+              </releaseDescription>
+
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+----

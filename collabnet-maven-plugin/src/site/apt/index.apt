@@ -1,0 +1,20 @@
+ -------------------------------------------
+ CollabNet TeamForge Plugin for Apache Maven
+ -------------------------------------------
+
+CollabNet TeamForge Plugin for Apache Maven
+
+  Plugin for Apache Maven that integrates with CollabNet TeamForge.
+
+* Goals Overview
+
+  * <<<{{{./deploy-to-releases-mojo.html} collabnet:deploy-to-releases}}>>> Deploy the project's artifacts to the File
+    Releases section of TeamForge
+
+* Usage
+
+  General usage instructions are found on the {{{./usage.html} Usage}} page.
+
+* Examples
+
+  * Foo!
