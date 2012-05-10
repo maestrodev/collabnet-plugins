@@ -81,6 +81,9 @@
             <goals>
               <goal>check</goal>
             </goals>
+            <configuration>
+              <offline>true</offline>
+            </configuration>
           </execution>
         </executions>
       </plugin>
