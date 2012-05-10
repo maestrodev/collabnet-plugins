@@ -19,7 +19,7 @@
   <parent>
     <groupId>com.maestrodev</groupId>
     <artifactId>collabnet-plugins</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
   </parent>
   <artifactId>collabnet-utils</artifactId>
   <name>CollabNet TeamForge SDK Utilities</name>
