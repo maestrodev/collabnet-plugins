@@ -3,6 +3,11 @@ CollabNet Plugins
 
 Plugins for working with CollabNet TeamForge within Maven and Maestro.
 
+Maven Plugin
+------------
+
+Documentation for the Maven plugin can be found at: <http://maestrodev.github.com/collabnet-plugins/>
+
 License
 -------
 ```
