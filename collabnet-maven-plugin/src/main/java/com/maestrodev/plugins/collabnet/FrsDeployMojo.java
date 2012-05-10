@@ -264,13 +264,17 @@ public class FrsDeployMojo
     private void uploadArtifacts(List<Artifact> artifacts, String releaseId, FrsSession frsSession) throws MojoExecutionException {
         for (Artifact artifact : artifacts) {
             File file = artifact.getFile();
-            getLog().info("Uploading '" + file + "' to release '" + releaseId + "'");
-            try {
-                frsSession.uploadFile(releaseId, file, overwrite);
-            } catch (RemoteException e) {
-                throw new MojoExecutionException("Unable to upload file: " + e.getLocalizedMessage(), e);
-            } catch (MalformedURLException e) {
-                throw new MojoExecutionException("Error trying to convert artifact to an URL: " + e.getLocalizedMessage(), e);
+            if (file != null) {
+                getLog().info("Uploading '" + file + "' to release '" + releaseId + "'");
+                try {
+                    frsSession.uploadFile(releaseId, file, overwrite);
+                } catch (RemoteException e) {
+                    throw new MojoExecutionException("Unable to upload file: " + e.getLocalizedMessage(), e);
+                } catch (MalformedURLException e) {
+                    throw new MojoExecutionException("Error trying to convert artifact to an URL: " + e.getLocalizedMessage(), e);
+                }
+            } else {
+                getLog().debug("Skipping artifact with no file: " + artifact);
             }
         }
     }
