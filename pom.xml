@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+  Copyright 2012 MaestroDev
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.maestrodev</groupId>
+  <artifactId>collabnet-plugins</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>CollabNet TeamForge Plugins</name>
+  <description>
+    Plugins for Apache Maven and Maestro that integrate with CollabNet TeamForge.
+  </description>
+
+  <scm>
+    <connection>scm:git:ssh://git@github.com/maestrodev/collabnet-plugins.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/maestrodev/collabnet-plugins.git</developerConnection>
+    <url>https://github.com/maestrodev/collabnet-plugins</url>
+  </scm>
+
+  <organization>
+    <name>MaestroDev</name>
+    <url>http://www.maestrodev.com/</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <repositories>
+    <repository>
+      <id>maestrodev-public</id>
+      <name>MaestroDev Public Repository</name>
+      <url>https://repo.maestrodev.com/archiva/repository/public</url>
+    </repository>
+  </repositories>
+
+  <distributionManagement>
+    <repository>
+      <id>maestro-deploy</id>
+      <name>Public Releases Repository</name>
+      <url>https://repo.maestrodev.com/archiva/repository/public-releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>maestro-deploy</id>
+      <name>Public Snapshots Repository</name>
+      <url>https://repo.maestrodev.com/archiva/repository/public-snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <issueManagement>
+    <system>github</system>
+    <url>https://github.com/maestrodev/collabnet-plugins/issues</url>
+  </issueManagement>
+
+  <developers>
+    <developer>
+      <id>bporter</id>
+      <name>Brett Porter</name>
+      <organization>MaestroDev</organization>
+      <email>brett@maestrodev.com</email>
+    </developer>
+  </developers>
+</project>
