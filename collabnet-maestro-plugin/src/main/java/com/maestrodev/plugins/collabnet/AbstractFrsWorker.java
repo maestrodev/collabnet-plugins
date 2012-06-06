@@ -16,7 +16,6 @@ package com.maestrodev.plugins.collabnet;
  * limitations under the License.
  */
 
-import com.btr.proxy.search.ProxySearch;
 import com.maestrodev.MaestroWorker;
 import com.maestrodev.plugins.collabnet.frs.FrsSession;
 import com.maestrodev.plugins.collabnet.frs.Release;
@@ -25,9 +24,7 @@ import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.ProxySelector;
 import java.rmi.RemoteException;
-import java.text.MessageFormat;
 
 public abstract class AbstractFrsWorker extends MaestroWorker {
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -167,29 +164,6 @@ public abstract class AbstractFrsWorker extends MaestroWorker {
         }
         setField("releaseId", releaseId);
         return releaseId;
-    }
-
-    protected void setupProxy() {
-        ProxySearch proxySearch = new ProxySearch();
-
-        // put JAVA after the others, as it will apply even if it's not set...
-        proxySearch.addStrategy(ProxySearch.Strategy.OS_DEFAULT);
-        proxySearch.addStrategy(ProxySearch.Strategy.ENV_VAR);
-        proxySearch.addStrategy(ProxySearch.Strategy.JAVA);
-        com.btr.proxy.util.Logger.setBackend(new com.btr.proxy.util.Logger.LogBackEnd() {
-
-            public void log(Class<?> clazz, com.btr.proxy.util.Logger.LogLevel loglevel, String msg,
-                            Object... params) {
-                logger.debug(MessageFormat.format(msg, params));
-            }
-
-            public boolean isLogginEnabled(com.btr.proxy.util.Logger.LogLevel logLevel) {
-                return logger.isDebugEnabled();
-            }
-        });
-        ProxySelector myProxySelector = proxySearch.getProxySelector();
-
-        ProxySelector.setDefault(myProxySelector);
     }
 
     protected class MaestroPluginLog implements Log {

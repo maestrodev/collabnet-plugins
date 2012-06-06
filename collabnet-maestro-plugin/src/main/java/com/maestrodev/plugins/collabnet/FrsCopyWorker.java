@@ -100,8 +100,6 @@ public class FrsCopyWorker extends AbstractFrsWorker {
             return;
         }
 
-        setupProxy();
-
         CollabNetSession session;
         try {
             session = new CollabNetSession(teamForgeUrl, teamForgeUsername, teamForgePassword, new MaestroPluginLog());
