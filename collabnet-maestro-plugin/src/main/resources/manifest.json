@@ -182,7 +182,7 @@
           },
           "repositoryUrl" : {
             "required" : true,
-            "type" : "String",
+            "type" : "Url",
             "value" : ""
           },
           "repositoryUsername" : {
