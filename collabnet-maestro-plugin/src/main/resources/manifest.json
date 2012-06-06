@@ -104,5 +104,146 @@
         },
         "tool_name" : "Deploy"
       }
+    },
+    {
+      "name" : "collabnet copy artifact to file release",
+      "description" : "Copy an artifact from a repository to the CollabNet File Releases section.",
+      "author" : "MaestroDev",
+      "version" : "${project.version}-${buildNumber}",
+      "class" : "com.maestrodev.plugins.collabnet.FrsCopyWorker",
+      "type" : "java",
+      "dependencies" : [ {
+        "name" : "${project.artifactId}-${project.version}.jar"
+      }, {
+        "name" : "pom.xml"
+      } ],
+      "task" : {
+        "command" : "/collabnet/frsCopy",
+        "inputs" : {
+          "package" : {
+            "required" : true,
+            "type" : "String",
+            "value" : ""
+          },
+          "release" : {
+            "required" : false,
+            "type" : "String",
+            "value" : ""
+          },
+          "project" : {
+            "required" : true,
+            "type" : "String",
+            "value" : ""
+          },
+          "teamForgeUrl" : {
+            "required" : true,
+            "type" : "Url",
+            "value" : ""
+          },
+          "teamForgeUsername" : {
+            "required" : true,
+            "type" : "String",
+            "value" : ""
+          },
+          "teamForgePassword" : {
+            "required" : true,
+            "type" : "Password",
+            "value" : ""
+          },
+          "createRelease" : {
+            "required" : true,
+            "type" : "Boolean",
+            "value" : true
+          },
+          "packageDescription" : {
+            "required" : false,
+            "type" : "String",
+            "value" : ""
+          },
+          "releaseDescription" : {
+            "required" : false,
+            "type" : "String",
+            "value" : ""
+          },
+          "releaseStatus" : {
+            "required" : false,
+            "type" : "String",
+            "value" : "pending"
+          },
+          "releaseMaturity" : {
+            "required" : false,
+            "type" : "String",
+            "value" : ""
+          },
+          "overwrite" : {
+            "required" : false,
+            "type" : "Boolean",
+            "value" : false
+          },
+          "repositoryUrl" : {
+            "required" : true,
+            "type" : "String",
+            "value" : ""
+          },
+          "repositoryUsername" : {
+            "required" : false,
+            "type" : "String",
+            "value" : ""
+          },
+          "repositoryPassword" : {
+            "required" : false,
+            "type" : "Password",
+            "value" : ""
+          },
+          "artifactGroupId" : {
+            "required" : true,
+            "type" : "String",
+            "value" : ""
+          },
+          "artifactId" : {
+            "required" : true,
+            "type" : "String",
+            "value" : ""
+          },
+          "artifactVersion" : {
+            "required" : true,
+            "type" : "String",
+            "value" : ""
+          },
+          "artifactType" : {
+            "required" : true,
+            "type" : "String",
+            "value" : "jar"
+          },
+          "artifactClassifier" : {
+            "required" : false,
+            "type" : "String",
+            "value" : ""
+          }
+        },
+        "outputs" : {
+          "projectId" : {
+            "required" : true,
+            "type" : "String",
+            "value" : ""
+          },
+          "packageId" : {
+            "required" : true,
+            "type" : "String",
+            "value" : ""
+          },
+          "releaseId" : {
+            "required" : true,
+            "type" : "String",
+            "value" : ""
+          },
+          "fileId" : {
+            "required" : false,
+            "type" : "String",
+            "value" : ""
+          }
+        },
+        "tool_name" : "Deploy"
+      }
     }
 ]
