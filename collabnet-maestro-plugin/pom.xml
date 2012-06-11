@@ -42,6 +42,7 @@
       <id>maestrodev-snapshots</id>
       <url>https://repo.maestrodev.com/archiva/repository/all/</url>
       <snapshots>
+        <enabled>true</enabled>
       </snapshots>
     </repository>
   </repositories>
