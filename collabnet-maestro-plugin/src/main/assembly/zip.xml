@@ -39,6 +39,10 @@
       <source>${project.build.outputDirectory}/manifest.json</source>
       <outputDirectory>/</outputDirectory>
     </file>
+    <file>
+      <source>${project.build.outputDirectory}/images/collabnet.png</source>
+      <outputDirectory>/images</outputDirectory>
+    </file>
   </files>
 
   <dependencySets>
