@@ -1,4 +1,14 @@
-[
+{
+  "source_types": [
+        {
+          "name" : "Collabnet",
+          "options" : {
+            "teamForgeUrl": "Url",
+            "teamForgeUsername":"String",
+            "teamForgePassword": "Password"
+          }
+        }],
+  "tasks" : [
     {
       "name" : "collabnet deploy file release",
       "description" : "Deploy the project's artifacts to the CollabNet File Releases section.",
@@ -249,3 +259,4 @@
       }
     }
 ]
+}
