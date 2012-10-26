@@ -21,6 +21,28 @@
   <groupId>com.maestrodev</groupId>
   <artifactId>collabnet-plugins</artifactId>
   <version>1.2-SNAPSHOT</version>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.collabnet</groupId>
+        <artifactId>sf_soap60_sdk</artifactId>
+        <version>6.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jcl-over-slf4j</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <properties>
+    <slf4j.version>1.6.4</slf4j.version>
+  </properties>
   <packaging>pom</packaging>
 
   <name>CollabNet TeamForge Plugins</name>

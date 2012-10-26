@@ -64,10 +64,17 @@
       <version>2.2.1</version>
     </dependency>
 
+    <!--
+      It is important that any logging does not enable DEBUG logging on the class
+      org.apache.axis.transport.http.HTTPSender. This causes the entire file to be
+      streamed into memory and output to the log
+      -->
+    <!-- TODO: choose a better logger for Maestro plugins -->
     <dependency>
       <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
+      <artifactId>slf4j-nop</artifactId>
       <version>${slf4j.version}</version>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
