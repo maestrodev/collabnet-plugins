@@ -282,10 +282,14 @@ public class FrsDeployMojo
     private void verifyConfiguration() throws MojoFailureException {
         if (teamForgeServerId != null) {
             AuthenticationInfo authenticationInfo = wagonManager.getAuthenticationInfo(teamForgeServerId);
-            teamForgeUsername = authenticationInfo.getUserName();
-            teamForgePassword = authenticationInfo.getPassword();
+            if (authenticationInfo == null) {
+                getLog().info("No credentials found for server '" + teamForgeServerId + "' found in settings.xml");
+            } else {
+                teamForgeUsername = authenticationInfo.getUserName();
+                teamForgePassword = authenticationInfo.getPassword();
 
-            getLog().debug("Using credentials from settings for user = " + teamForgeUsername);
+                getLog().debug("Using credentials from settings for user = " + teamForgeUsername);
+            }
         }
 
         if (teamForgeUsername == null) {
