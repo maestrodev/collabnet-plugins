@@ -73,6 +73,11 @@ public class FrsCopyWorker extends AbstractFrsWorker {
      */
     private String artifactClassifier;
 
+    /**
+     * The (optional) filename to use for the remote file.
+     */
+    private String filename;
+
     @Override
     public void setWorkitem(JSONObject workitem) {
         super.setWorkitem(workitem);
@@ -85,6 +90,7 @@ public class FrsCopyWorker extends AbstractFrsWorker {
         this.artifactVersion = getField("artifactVersion");
         this.artifactType = getField("artifactType");
         this.artifactClassifier = getField("artifactClassifier");
+        this.filename = getField("filename");
 
         if (StringUtils.isBlank(this.release)) {
             this.release = this.artifactVersion;
@@ -152,7 +158,12 @@ public class FrsCopyWorker extends AbstractFrsWorker {
         String path = new DefaultRepositoryLayout().pathOf(artifact);
         String url = repositoryUrl + "/" + path;
 
-        String msg = "Uploading '" + url + "' to release '" + releaseId + "'";
+        String filename = this.filename;
+        if (StringUtils.isBlank(filename)) {
+            filename = path.substring(path.lastIndexOf('/') + 1);
+        }
+
+        String msg = "Uploading '" + url + "' to release '" + releaseId + "' as '" + filename + "'";
         logger.debug(msg);
         writeOutput(msg + "\n");
 
@@ -163,6 +174,6 @@ public class FrsCopyWorker extends AbstractFrsWorker {
             }
         });
 
-        return frsSession.uploadFileFromUrl(releaseId, new URL(url), path.substring(path.lastIndexOf('/') + 1), overwrite);
+        return frsSession.uploadFileFromUrl(releaseId, new URL(url), filename, overwrite);
     }
 }

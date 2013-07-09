@@ -230,6 +230,11 @@
             "required" : false,
             "type" : "String",
             "value" : ""
+          },
+          "filename" : {
+            "required" : false,
+            "type" : "String",
+            "value" : ""
           }
         },
         "outputs" : {
