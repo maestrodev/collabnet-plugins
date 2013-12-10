@@ -1,4 +1,5 @@
 {
+  "image": "collabnet.png",
   "source_types": [
         {
           "name" : "Collabnet",
@@ -16,75 +17,97 @@
       "version" : "${project.version}-${buildNumber}",
       "class" : "com.maestrodev.plugins.collabnet.FrsDeployWorker",
       "type" : "java",
-      "dependencies" : [ {
-        "name" : "${project.artifactId}-${project.version}.jar"
-      }, {
-        "name" : "pom.xml"
-      } ],
+      "dependencies" : [],
       "task" : {
         "command" : "/collabnet/frsDeploy",
         "inputs" : {
           "package" : {
+            "label": "Package",
+            "description": "Package name",
             "required" : true,
             "type" : "String",
             "value" : ""
           },
           "release" : {
+            "label": "Release",
+            "description": "Release name",
             "required" : true,
             "type" : "String",
             "value" : ""
           },
           "project" : {
+            "label": "Project",
+            "description": "The ID of the project",
             "required" : true,
             "type" : "String",
             "value" : ""
           },
           "teamForgeUrl" : {
+            "label": "TeamForge URL",
+            "description": "The URL of the TeamForge server",
             "required" : true,
             "type" : "Url",
             "value" : ""
           },
           "teamForgeUsername" : {
+            "label": "TeamForge Username",
+            "description": "A valid TeamForge user",
             "required" : true,
             "type" : "String",
             "value" : ""
           },
           "teamForgePassword" : {
+            "label": "TeamForge Password",
+            "description": "The password of the TeamForge user",
             "required" : true,
             "type" : "Password",
             "value" : ""
           },
           "createRelease" : {
+            "label": "Create Release?",
+            "description": "Create a release?",
             "required" : true,
             "type" : "Boolean",
             "value" : true
           },
           "packageDescription" : {
+            "label": "Package Description",
+            "description": "Description of package",
             "required" : false,
             "type" : "String",
             "value" : ""
           },
           "releaseDescription" : {
+            "label": "Release Description",
+            "description": "Description of release",
             "required" : false,
             "type" : "String",
             "value" : ""
           },
           "releaseStatus" : {
+            "label": "Release Status",
+            "description": "Status of release",
             "required" : false,
             "type" : "String",
             "value" : "pending"
           },
           "releaseMaturity" : {
+            "label": "Release Maturity",
+            "description": "Maturity of release",
             "required" : false,
             "type" : "String",
             "value" : ""
           },
           "overwrite" : {
+            "label": "Overwrite?",
+            "description": "Overwrite existing?",
             "required" : false,
             "type" : "Boolean",
             "value" : false
           },
           "files" : {
+            "label": "Files",
+            description": "List of files",
             "required" : true,
             "type" : "Array",
             "value" : []
@@ -132,106 +155,148 @@
         "command" : "/collabnet/frsCopy",
         "inputs" : {
           "package" : {
+            "label": "Package",
+            "description": "Package name",
             "required" : true,
             "type" : "String",
             "value" : ""
           },
           "release" : {
+            "label": "Release",
+            "description": "Release name",
             "required" : false,
             "type" : "String",
             "value" : ""
           },
           "project" : {
+            "label": "Project",
+            "description": "The ID of the project",
             "required" : true,
             "type" : "String",
             "value" : ""
           },
           "teamForgeUrl" : {
+            "label": "TeamForge URL",
+            "description": "The URL of the TeamForge server",
             "required" : true,
             "type" : "Url",
             "value" : ""
           },
           "teamForgeUsername" : {
+            "label": "TeamForge Username",
+            "description": "A valid TeamForge user",
             "required" : true,
             "type" : "String",
             "value" : ""
           },
           "teamForgePassword" : {
+            "label": "TeamForge Password",
+            "description": "The password of the TeamForge user",
             "required" : true,
             "type" : "Password",
             "value" : ""
           },
           "createRelease" : {
+            "label": "Create Release?",
+            "description": "Create a release?",
             "required" : true,
             "type" : "Boolean",
             "value" : true
           },
           "packageDescription" : {
+            "label": "Package Description",
+            "description": "Description of package",
             "required" : false,
             "type" : "String",
             "value" : ""
           },
           "releaseDescription" : {
+            "label": "Release Description",
+            "description": "Description of release",
             "required" : false,
             "type" : "String",
             "value" : ""
           },
           "releaseStatus" : {
+            "label": "Release Status",
+            "description": "Status or release",
             "required" : false,
             "type" : "String",
             "value" : "pending"
           },
           "releaseMaturity" : {
+            "label": "Release Maturity",
+            "description": "Maturity of release",
             "required" : false,
             "type" : "String",
             "value" : ""
           },
           "overwrite" : {
+            "label": "Overwrite?",
+            "description": "Overwrite existing?",
             "required" : false,
             "type" : "Boolean",
             "value" : false
           },
           "repositoryUrl" : {
+            "label": "Repository URL",
+            "description": "URL of repository to upload to",
             "required" : true,
             "type" : "Url",
             "value" : ""
           },
           "repositoryUsername" : {
+            "label": "Repository Username",
+            "description": "A repository username",
             "required" : false,
             "type" : "String",
             "value" : ""
           },
           "repositoryPassword" : {
+            "label": "Repository Password",
+            "description": "Repository users password",
             "required" : false,
             "type" : "Password",
             "value" : ""
           },
           "artifactGroupId" : {
+            "label": "Artifact Group ID",
+            "description": "Repo POM Group ID",
             "required" : true,
             "type" : "String",
             "value" : ""
           },
           "artifactId" : {
+            "label": "Artifact ID",
+            "description": "Repo POM Artifact ID",
             "required" : true,
             "type" : "String",
             "value" : ""
           },
           "artifactVersion" : {
+            "label": "Artifact Version",
+            "description": "Repo POM Artifact version",
             "required" : true,
             "type" : "String",
             "value" : ""
           },
           "artifactType" : {
+            "label": "Artifact Type",
+            "description": "Repo POM Artifact type",
             "required" : true,
             "type" : "String",
             "value" : "jar"
           },
           "artifactClassifier" : {
+            "label": "Artifact Classifier",
+            "description": "Repo POM Artifact classifier",
             "required" : false,
             "type" : "String",
             "value" : ""
           },
           "filename" : {
+            "label": "Filename",
+            "description": "Filename",
             "required" : false,
             "type" : "String",
             "value" : ""
@@ -263,5 +328,5 @@
         "icon": "collabnet.png"
       }
     }
-]
+  ]
 }

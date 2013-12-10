@@ -25,6 +25,9 @@
   <artifactId>collabnet-maestro-plugin</artifactId>
   <name>CollabNet TeamForge Plugin for Maestro</name>
 
+  <!-- Maestro Plugin should be placed in common plugins group -->
+  <groupId>com.maestrodev.maestro.plugins</groupId>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <slf4j.version>1.5.8</slf4j.version>
