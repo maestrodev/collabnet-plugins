@@ -107,7 +107,7 @@
           },
           "files" : {
             "label": "Files",
-            description": "List of files",
+            "description": "List of files",
             "required" : true,
             "type" : "Array",
             "value" : []
