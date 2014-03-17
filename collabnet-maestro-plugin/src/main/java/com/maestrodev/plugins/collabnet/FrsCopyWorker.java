@@ -30,6 +30,7 @@ import java.net.MalformedURLException;
 import java.net.PasswordAuthentication;
 import java.net.URL;
 import java.rmi.RemoteException;
+import java.util.Collections;
 
 public class FrsCopyWorker extends AbstractFrsWorker {
 
@@ -134,6 +135,12 @@ public class FrsCopyWorker extends AbstractFrsWorker {
 
             String fileId = copyArtifact(frsSession, releaseId);
             setField("fileId", fileId);
+            JSONObject record = addCollabnetReleaseToContext(projectId, packageId, releaseId, Collections.singletonList(fileId));
+            record.put("mavenGroupId", artifactGroupId);
+            record.put("mavenArtifactId", artifactId);
+            record.put("mavenArtifactId", artifactId);
+            record.put("mavenType", artifactType);
+            record.put("mavenClassifier", artifactClassifier);
         } catch (RemoteException e) {
             String msg = e.getLocalizedMessage();
             logger.error(msg, e);

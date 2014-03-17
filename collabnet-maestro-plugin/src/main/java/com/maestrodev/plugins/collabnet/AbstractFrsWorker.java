@@ -25,6 +25,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class AbstractFrsWorker extends MaestroWorker {
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -164,6 +166,31 @@ public abstract class AbstractFrsWorker extends MaestroWorker {
         }
         setField("releaseId", releaseId);
         return releaseId;
+    }
+
+    protected JSONObject addCollabnetReleaseToContext(String projectId, String packageId, String releaseId, List<String> fileIds) {
+        JSONObject context = (JSONObject) getFields().get("__context_outputs__");
+        if (context == null) {
+            context = new JSONObject();
+            setField("__context_outputs__", context);
+        }
+        List<JSONObject> collabnetReleases = (List<JSONObject>) context.get("collabnetReleases");
+        if (collabnetReleases == null) {
+            collabnetReleases = new ArrayList<JSONObject>();
+            context.put("collabnetReleases", collabnetReleases);
+        }
+
+        JSONObject collabnetRelease = new JSONObject();
+        collabnetRelease.put("fileIds", fileIds);
+        collabnetRelease.put("projectId", projectId);
+        collabnetRelease.put("project", project);
+        collabnetRelease.put("packageId", packageId);
+        collabnetRelease.put("package", pkg);
+        collabnetRelease.put("releaseId", releaseId);
+        collabnetRelease.put("release", release);
+        collabnetReleases.add(collabnetRelease);
+
+        return collabnetRelease;
     }
 
     protected class MaestroPluginLog implements Log {

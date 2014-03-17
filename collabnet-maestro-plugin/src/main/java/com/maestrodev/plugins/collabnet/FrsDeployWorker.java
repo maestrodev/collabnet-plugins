@@ -80,6 +80,8 @@ public class FrsDeployWorker extends AbstractFrsWorker {
 
             List<String> fileIds = uploadArtifacts(files, releaseId, frsSession);
             setField("fileIds", fileIds);
+
+            addCollabnetReleaseToContext(projectId, packageId, releaseId, fileIds);
         } catch (RemoteException e) {
             String msg = e.getLocalizedMessage();
             logger.error(msg, e);
