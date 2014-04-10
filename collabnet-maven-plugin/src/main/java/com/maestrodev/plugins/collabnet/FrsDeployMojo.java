@@ -15,7 +15,6 @@ package com.maestrodev.plugins.collabnet;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import com.maestrodev.plugins.collabnet.frs.FrsSession;
 import com.maestrodev.plugins.collabnet.frs.Package;
 import com.maestrodev.plugins.collabnet.frs.Release;
@@ -57,7 +56,7 @@ public class FrsDeployMojo
      * The name of the release to deploy the files to.  If it can not be found it will be created, unless
      * <code>{@linkplain #createRelease}</code> is <code>false</code>.
      *
-     * @parameter default-value="${project.version}"
+     * @parameter default-value="${releaseName}"
      * @required
      */
     private String release;
@@ -132,9 +131,9 @@ public class FrsDeployMojo
     /**
      * The maturity to assign to the release, if it is created.
      *
-     * @parameter default-value=""
+     * @parameter default-value="General Availability"
      */
-    private String releaseMaturity = ""; // empty string is required, as default-value="" gives null
+    private String releaseMaturity;
 
     /**
      * Whether to overwrite the file if it already exists. The default is <code>true</code> if the project version is a
