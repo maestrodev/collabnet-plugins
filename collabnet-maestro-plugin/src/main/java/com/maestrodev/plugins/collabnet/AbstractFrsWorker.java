@@ -16,7 +16,7 @@ package com.maestrodev.plugins.collabnet;
  * limitations under the License.
  */
 
-import com.maestrodev.MaestroWorker;
+import com.maestrodev.maestro.plugins.MaestroWorker;
 import com.maestrodev.plugins.collabnet.frs.FrsSession;
 import com.maestrodev.plugins.collabnet.frs.Release;
 import com.maestrodev.plugins.collabnet.log.Log;
@@ -28,7 +28,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractFrsWorker extends MaestroWorker {
+public abstract class AbstractFrsWorker extends MaestroWorker
+{
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
     /**
      * The package (product) to deploy the files to. If it can not be found, it will be created, unless
